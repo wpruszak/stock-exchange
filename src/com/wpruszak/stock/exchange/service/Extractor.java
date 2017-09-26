@@ -43,7 +43,7 @@ public class Extractor {
 	private static final String SELECTOR_INDEX_INFO = "#boxProfil .boxContent.boxTable table.summaryTable tbody tr.startingData td.textBold";
 	private static final String SELECTOR_INDEX_NAME = "#boxProfilHeader div.boxHeader .profilHead";
 	private static final String SELECTOR_INDEX_EXCHANGE = "#boxProfilHeader div.boxHeader div.profilLast";
-	private static final String SELECTOR_INDEX_CHANGES = "#boxProfilHeader div.boxHeader div.change.up span";
+	private static final String SELECTOR_INDEX_CHANGES = "#boxProfilHeader div.boxHeader div.change span";
 	private static final String SELECTOR_COMPANIES = "#boxProfil .boxContent.boxTable table.sortTableMixedData.floatingHeaderTable tbody";
 
 	private Document document;

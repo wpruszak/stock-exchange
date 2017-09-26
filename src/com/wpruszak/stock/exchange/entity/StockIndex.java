@@ -1,6 +1,7 @@
 package com.wpruszak.stock.exchange.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -63,6 +64,8 @@ public class StockIndex {
 	private Double min1R;
 
 	private LocalDate min1Rdate;
+	
+	private LocalDateTime date;
 
 	public Long getId() {
 		return id;
@@ -207,6 +210,14 @@ public class StockIndex {
 	public void setMin1Rdate(LocalDate min1Rdate) {
 		this.min1Rdate = min1Rdate;
 	}
+	
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDateTime date) {
+		this.date = date;
+	}
 
 	@Override
 	public String toString() {
@@ -215,6 +226,6 @@ public class StockIndex {
 				+ ", openingRate=" + openingRate + ", max1D=" + max1D + ", min1D=" + min1D + ", tradingVolume="
 				+ tradingVolume + ", tradingValue=" + tradingValue + ", transactionCount=" + transactionCount
 				+ ", returnRatePercent=" + returnRatePercent + ", max1R=" + max1R + ", max1Rdate=" + max1Rdate
-				+ ", min1R=" + min1R + ", min1Rdate=" + min1Rdate + "]";
+				+ ", min1R=" + min1R + ", min1Rdate=" + min1Rdate + ", date=" + date + "]";
 	}
 }

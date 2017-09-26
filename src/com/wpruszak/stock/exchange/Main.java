@@ -1,6 +1,7 @@
 package com.wpruszak.stock.exchange;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -28,8 +29,13 @@ public class Main {
 		session.clear();
 		session.beginTransaction();
 
+		LocalDateTime date = LocalDateTime.now();
+		index.setDate(date);
 		session.save(index);
-		companyIndexes.forEach(session::save);
+		companyIndexes.forEach(companyIndex -> {
+			companyIndex.setDate(date);
+			session.save(companyIndex);
+		});
 
 		session.getTransaction().commit();
 		session.close();

@@ -1,5 +1,7 @@
 package com.wpruszak.stock.exchange.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,10 +10,7 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 
 @Entity
-@Table(indexes = { 
-		@Index(columnList = "ticker", name = "idx_ticker"),
-		@Index(columnList = "name", name = "idx_name")
-})
+@Table(indexes = { @Index(columnList = "ticker", name = "idx_ticker"), @Index(columnList = "name", name = "idx_name") })
 public class CompanyIndex {
 
 	@Id
@@ -41,6 +40,8 @@ public class CompanyIndex {
 
 	@Column(precision = 10, scale = 2)
 	private Double walletShare;
+
+	private LocalDateTime date;
 
 	public Long getId() {
 		return id;
@@ -122,11 +123,19 @@ public class CompanyIndex {
 		this.walletShare = walletShare;
 	}
 
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDateTime date) {
+		this.date = date;
+	}
+
 	@Override
 	public String toString() {
 		return "CompanyIndex [id=" + id + ", name=" + name + ", ticker=" + ticker + ", exchange=" + exchange
 				+ ", escChange=" + escChange + ", percentChange=" + percentChange + ", influenceOnIndexPercent="
 				+ influenceOnIndexPercent + ", turnoverSharePercent=" + turnoverSharePercent + ", packet=" + packet
-				+ ", walletShare=" + walletShare + "]";
+				+ ", walletShare=" + walletShare + ", date=" + date + "]";
 	}
 }
